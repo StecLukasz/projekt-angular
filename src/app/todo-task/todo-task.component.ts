@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TodoTaskComponent implements OnInit {
   @Input()
-  taskList = [];
+  tasksList = [];
   @Output()
   emitDone = new EventEmitter<string>();
   @Output()
@@ -22,5 +22,9 @@ export class TodoTaskComponent implements OnInit {
 
   done(task: string) {
     this.emitDone.emit(task);
+  }
+
+  getColor(){
+    return this.tasksList.length >= 5 ? 'red' : 'green'
   }
 }
